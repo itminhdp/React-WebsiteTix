@@ -1,0 +1,17 @@
+// $Screen: Chứa tên màn hình
+@mixin responsive($breakpoint) {
+    @if (map-has-key($map: $breakpoints, $key: $breakpoint)) {
+        //Tên màn hình hợp lệ
+        // Lấy giá trị màn hình theo tên
+        $value: map-get(
+            $map: $breakpoints,
+            $key: $breakpoint,
+        );
+        @media screen and (max-width: $value) {
+            @content;
+        }
+    } @else {
+        // Tên màn hình sai
+        @warn "Ten man hinh khong dung";
+    }
+}
